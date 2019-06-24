@@ -28,7 +28,7 @@ elseif(!preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6
 }
 elseif($number ==""){
     $errorMsg=  "error : You did not enter number.";
-    $code= "2";$valid=false;}
+    $code= "3";$valid=false;}
  //check if the number field is numeric
   elseif(is_numeric(trim($number)) == false){
     $errorMsg=  "error : Please enter numeric value.";
@@ -111,21 +111,20 @@ color: #ffffff;
 	
 			<p>
 			<b>Name:<br style="line-height:0cm"> 
-	<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;" id="myText" type="name"name="name" placeholder="Enter Your Name " value="<?php if(isset($name)&& $success==''){echo $name;} ?>"<?php if(isset($code) && $code == 1){echo "$errorMsg" ;} ?>>
+	<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;" id="myText" type="name"name="name" placeholder="Enter Your Name " value="<?php if(isset($name)&& $success==''){echo $name;} ?>"><?php if(isset($code) && $code == 1){ echo "<font color=dark red>!</font>" ;} ?>
 			
 			<br><br>
 			Email: <br> 
-			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:380px "placeholder="Enter a Valid Email Address"  type="email" name="email" id="email" value="<?php if(isset($email)&& $success==''){echo $email;}?>" <?php if(isset($code) && $code == 2){echo "class=errorMsg" ;} ?>>
+			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:380px "placeholder="Enter a Valid Email Address"  type="email" name="email" id="email" value="<?php if(isset($email)&& $success==''){echo $email;}?>"> 
+			<?php if(isset($code) && $code == 2){echo "<font color=red>!</font>" ;} ?>
 
 			<br><br>
 			Mobile Number: <br> 
-			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:250px" id="myText" type="number" name="number"placeholder="Enter Ten-Digit Number"value="<?php if(isset($number)&& $success==''){echo $number;} ?>"
-			<?php if(isset($code) && $code == 3){echo "class=errorMsg" ;} ?>>
-
-			<br><br>
+			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:380px "placeholder="Enter a 10 digit number"  type="number" name="number" id="number" value="<?php if(isset($number)&& $success==''){echo $number;}?>"> 
+			<?php if(isset($code) && $code == 3){echo "<font color=red>!</font>" ;} ?><br><br>
 			Date: <br> 
-			<input   style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:200px"placeholder="dd/mm/yyyy" id="myText" type="date"name="date" value="<?php if(isset($date)&& $success==''){echo $date;} ?>"
-			<?php if(isset($code) && $code == 4){echo "class=errorMsg" ;} ?>>
+			<input   style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:200px"placeholder="dd/mm/yyyy" id="myText" type="date"name="date" value="<?php if(isset($date)&& $success==''){echo $date;} ?>">
+			<?php if(isset($code) && $code == 4){echo "<font color=red>!</font>" ;} ?>
 tn
 			<br> <br>
 		<!--	<button type="submit" form="form1" value="Submit" name="Submit" ><font size="5">Submit</font></button></b> -->
