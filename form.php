@@ -107,7 +107,7 @@ color: #ffffff;
 	
 			<p>
 			<b>Name:<br style="line-height:0cm"> 
-	<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;" id="myText" type="name"name="name" placeholder="Enter Your Name "<?php if(isset($code) && $code == 1){echo "class=errorMsg" ;} ?>>
+	<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;" id="myText" type="name"name="name" placeholder="Enter Your Name " value="<?php if(isset($name)){echo $name;} ?>"<?php if(isset($code) && $code == 1){echo "class=errorMsg" ;} ?>>
 			
 			<br><br>
 			Email: <br> 
