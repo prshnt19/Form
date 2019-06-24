@@ -6,12 +6,15 @@ if(isset($_POST['Submit'])){
   $email=trim($_POST["email"]);
   $number=trim($_POST["number"]); 
    $date=trim($_POST["date"]);
-  
+  $success='';
  $valid = true;
   if($name =="") {
     $errorMsg=  "error : You did not enter a name.";
     $code= "1" ;$valid=false;
   }
+ elseif (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $errorMsg = 'Only letters and white space allowed in name';  $code= "1" ;$valid=false;
+    }
  
  
   //check if email field is empty
@@ -42,6 +45,7 @@ elseif($number ==""){
  
 
 elseif($valid){
+	$success="success";
 	require_once("demo.php");
         //include"ddi.php";echo"hi";
        
@@ -57,7 +61,7 @@ elseif($valid){
    	<meta charset="utf-8">
       <title>Form</title>
 	<style type="text/css">
-		 .errorMsg{border:2px solid red; }
+		 .errorMsg{border:none;border-bottom:5px solid grey}
   .message{color: black; font-weight:bold; }
 	.div1{background-image: url(" t.jpeg");
 		 height: 900px; color:#000000;
@@ -107,26 +111,26 @@ color: #ffffff;
 	
 			<p>
 			<b>Name:<br style="line-height:0cm"> 
-	<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;" id="myText" type="name"name="name" placeholder="Enter Your Name " value="<?php if(isset($name)){echo $name;} ?>"<?php if(isset($code) && $code == 1){echo "class=errorMsg" ;} ?>>
+	<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;" id="myText" type="name"name="name" placeholder="Enter Your Name " value="<?php if(isset($name)&& $success==''){echo $name;} ?>"<?php if(isset($code) && $code == 1){echo "$errorMsg" ;} ?>>
 			
 			<br><br>
 			Email: <br> 
-			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:380px "placeholder="Enter a Valid Email Address"  type="email" name="email" id="email" <?php if(isset($code) && $code == 2){echo "class=errorMsg" ;} ?>>
+			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:380px "placeholder="Enter a Valid Email Address"  type="email" name="email" id="email" value="<?php if(isset($email)&& $success==''){echo $email;}?>" <?php if(isset($code) && $code == 2){echo "class=errorMsg" ;} ?>>
 
 			<br><br>
 			Mobile Number: <br> 
-			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:250px" id="myText" type="number" name="number"placeholder="Enter Ten-Digit Number"
+			<input  style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:250px" id="myText" type="number" name="number"placeholder="Enter Ten-Digit Number"value="<?php if(isset($number)&& $success==''){echo $number;} ?>"
 			<?php if(isset($code) && $code == 3){echo "class=errorMsg" ;} ?>>
 
 			<br><br>
 			Date: <br> 
-			<input   style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:200px"placeholder="dd/mm/yyyy" id="myText" type="date"name="date" 
+			<input   style="height:27px;color:#ffffff;font-size: 13pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:200px"placeholder="dd/mm/yyyy" id="myText" type="date"name="date" value="<?php if(isset($date)&& $success==''){echo $date;} ?>"
 			<?php if(isset($code) && $code == 4){echo "class=errorMsg" ;} ?>>
 tn
 			<br> <br>
 		<!--	<button type="submit" form="form1" value="Submit" name="Submit" ><font size="5">Submit</font></button></b> -->
 
-<input type="submit" name="Submit" value="Submit" style="font-size:20pt" > 
+<input type="submit" name="Submit" value="Submit" style="font-size:20pt" onClick="clearform();"> 
 
 		
 	
