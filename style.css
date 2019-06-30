@@ -1,0 +1,73 @@
+body{
+background: liner-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5));
+background-image: url(" image.jpg");
+
+background-size:cover;
+background-position:center;
+}
+.login-box{
+max-width:700px;
+float:none;
+margin:150px auto;
+
+}
+
+.column {
+ float:center;
+
+  width: 50%;
+
+
+ height: 600px; 
+box-sizing: border-box;
+
+
+
+background-color: #ffffff; /* Fallback color */
+/* Black w/opacity/see-through */
+
+  font-weight: bold;
+
+  
+font-size:18pt;
+
+  
+}
+/*.left {
+  width: 50%;
+
+
+  height: 600px; 
+
+  box-sizing: border-box;
+
+
+ 
+  background-color: rgba(0,0,0, 0.2); 
+
+  font-weight: bold;
+
+  
+font-size:18pt;
+
+
+}
+
+.right {
+
+  width: 50%;
+
+  height: 600px; 
+box-sizing: border-box;
+
+
+
+background-color: #ffffff;
+
+
+  font-weight: bold;
+
+  
+font-size:18pt;
+}
+*/
