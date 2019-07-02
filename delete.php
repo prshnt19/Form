@@ -1,4 +1,9 @@
-<?php
+<?php if(!isset($_SERVER['HTTP_REFERER'])){
+    // redirect them to your desired location
+    header('login.php');
+    exit;
+}
+?><?php
 
 
 $servername = "localhost";  //replace your servername

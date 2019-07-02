@@ -3,6 +3,12 @@
 
 
 <?php
+session_start();
+     if(isset($_SESSION['username']))
+{	header('Location: table.php');
+
+}
+
 if(isset($_POST['Submit'])){
 $valid=true;
   $username=trim($_POST["username"]);
@@ -18,7 +24,19 @@ $conn =new  mysqli($servername, $usernameroot, $password, $dbname);
 $sql="SELECT * FROM userregistrations WHERE username='".$_POST["username"]."' && password='".$_POST["password"]."'";
 $result=mysqli_query($conn,$sql);
 if(mysqli_num_rows($result)>0){ $success="success";
-	header('Location: loginuser.php');}
+
+
+while($userregistrations = mysqli_fetch_array($result))
+{
+
+$nn=$userregistrations['username'];
+$_SESSION['username'] = $nn;
+
+  	header('Location: table.php');
+
+}
+
+}
 
 
 
@@ -71,7 +89,7 @@ else
   <label>Password:</label><br>
   <input style="height:27px;color:#ffffff;font-size: 16pt;background: transparent;border: none;border-bottom: 2px solid #ADD8E6;width:300px;"  type="password" name="password" class="form-control" required>
   </div><bR><br>
-  <button type="submit" name="Submit" style="font-size:20pt" class="btn btn-primary">Login</button>
+  <button type="login" name="Submit" style="font-size:20pt" class="btn btn-primary">Login</button>
   </form>
   
   </div>
