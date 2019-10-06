@@ -2,8 +2,8 @@
 <?php   
 
 $servername = "localhost";  //replace your servername
-$username = "root";   //replace your username
-$password = "647931";        //replace your password
+$username = "pr";   //replace your username
+$password = "pr";        //replace your password
 $dbname = "userregistrations";    //replace your database name
 
 // Create connection
